@@ -140,7 +140,9 @@ export default {
     setValue (value) {
       this.$emit('input', value)
       // When formatter removes last typed character, value of text input should update to formatted value
-      this.$refs.input.value = value
+      if (this.$refs.input.value !== value) {
+        this.$refs.input.value = value
+      }
     },
     onInput (evt) {
       const value = evt.target.value
